@@ -49,3 +49,26 @@ function x() {
 - *Immediately Invoke Code:* The function runs as soon as it is defined.
 - *Keep variables and Functions Private:* By wrapping the code within the IIFE, it prevents variables and dunctions from interfering with other partss of the code.
 - This ensures that the code within the IIFE remains independent and private.
+- Using IIFE solves multiple problems by providing scope isolation and immediate execution.
+
+**How are variables and functions private in different modules?**
+- Because of IIFE and the require(), wrapping code inside IIFE function.
+  
+**How do we get access to *module.exports*? Where does this *module* come from?** 
+- In Node.js, when our code is wrapped inside an IIFE function, this IIFE function has a parameter named *module*. This parameter is an **object** provided by Node.js that includes *module.exports*.
+- When we are using *module.exports*, we are modifying the *exports* object of the current module. Node.js relies on this object to determine what will be exported from the module when it's required in another file.
+- The *module* object is automatically provided by Node.js and is passed as a parameter to the function that wraps our code.
+- This mechanism allows us to define which parts of our module are accessible externally.
+
+**How require() works Behind the scenes**
+
+1. **Resolving the Module:**
+- Node.js first determines the path of the module. It checks whether the path is local file `(./local)`, a JSON file (`.json`), or a module (`.js`).
+2. **Loading the Module:**`
+- Once the path is resolved, Node.js loads the file content based on its type. The loading process varies and depends on file type. 
+3. **Wrapping The Code Inside an IIFE Function:**
+- The module code is wrapped in an Immediately Invoked Function Expression (IIFE). This wrapping helps encapsulate the module's scope keeping the variables and functions private to the module.
+4. **Code Evaluation and Module Exports:**
+- After wrapping the code, Node.js evaluates the module's code. During this evaluation, `module.exports` is set to export the module's functionality or data. *This step essentially makes the module's exports available to other files*.
+5. **Caching (very imp):**
+- **Importance:** Caching is crucial for performance optimization. Node.js caches the result of the `require()` call so that the *module is only loaded and executed only once*.  
