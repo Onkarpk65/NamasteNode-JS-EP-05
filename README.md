@@ -74,3 +74,6 @@ function x() {
 - **Importance:** Caching is crucial for performance optimization. Node.js caches the result of the `require()` call so that the *module is only loaded and executed only once*.  
 6. **Passes the code to V8 engine:**
 - After doing all the steps, now the code is passed to the V8 engine for further processing.
+
+
+![Image](https://github.com/user-attachments/assets/f8ed507e-190d-4344-ae8a-336bdf9c5662)  
