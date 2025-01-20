@@ -45,22 +45,22 @@ function x() {
     x();
 ```   
 
-**In Node.js, Before passing the code to the V8 engine, it wraps the module code inside an IIFE. The purpose of IIFE is to:**
+## **In Node.js, Before passing the code to the V8 engine, it wraps the module code inside an IIFE. The purpose of IIFE is to:**
 - *Immediately Invoke Code:* The function runs as soon as it is defined.
 - *Keep variables and Functions Private:* By wrapping the code within the IIFE, it prevents variables and dunctions from interfering with other partss of the code.
 - This ensures that the code within the IIFE remains independent and private.
 - Using IIFE solves multiple problems by providing scope isolation and immediate execution.
 
-**How are variables and functions private in different modules?**
+## **How are variables and functions private in different modules?**
 - Because of IIFE and the require(), wrapping code inside IIFE function.
   
-**How do we get access to *module.exports*? Where does this *module* come from?** 
+## **How do we get access to *module.exports*? Where does this *module* come from?** 
 - In Node.js, when our code is wrapped inside an IIFE function, this IIFE function has a parameter named *module*. This parameter is an **object** provided by Node.js that includes *module.exports*.
 - When we are using *module.exports*, we are modifying the *exports* object of the current module. Node.js relies on this object to determine what will be exported from the module when it's required in another file.
 - The *module* object is automatically provided by Node.js and is passed as a parameter to the function that wraps our code.
 - This mechanism allows us to define which parts of our module are accessible externally.
 
-**How require() works Behind the scenes**
+##  **How require() works Behind the scenes**
 
 1. **Resolving the Module:**
 - Node.js first determines the path of the module. It checks whether the path is local file `(./local)`, a JSON file (`.json`), or a module (`.js`).
