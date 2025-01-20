@@ -72,3 +72,5 @@ function x() {
 - After wrapping the code, Node.js evaluates the module's code. During this evaluation, `module.exports` is set to export the module's functionality or data. *This step essentially makes the module's exports available to other files*.
 5. **Caching (very imp):**
 - **Importance:** Caching is crucial for performance optimization. Node.js caches the result of the `require()` call so that the *module is only loaded and executed only once*.  
+6. **Passes the code to V8 engine:**
+- After doing all the steps, now the code is passed to the V8 engine for further processing.
